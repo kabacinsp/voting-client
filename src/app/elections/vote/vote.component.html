@@ -1,0 +1,17 @@
+<h1 class="m-2">Vote!</h1>
+<form (ngSubmit)="onSubmit()" #addVoterModal="ngForm">
+    <select class="ml-2 select" [(ngModel)]="voterSelected" [ngModelOptions]="{standalone: true}">
+        <option selected value="undefined">I am</option>
+        <option *ngFor="let voter of voters" [value]="voter.id">{{voter.name}}</option>
+    </select>
+    
+    <select class="ml-2 select" [(ngModel)]="candidateSelected" [ngModelOptions]="{standalone: true}">
+        <option selected value="undefined">I vote for</option>
+        <option *ngFor="let candidate of candidates" [value]="candidate.id">{{candidate.name}}</option>
+    </select>
+    
+    <button class="ml-2 button" type="submit">Submit!</button>
+    
+</form>
+<div [ngClass]="shouldSnackbarBeVisible && isNaN(voterSelected) ? 'show-alert' : ''" class="snackbar">Select a voter</div>
+<div [ngClass]="shouldSnackbarBeVisible && isNaN(candidateSelected) ? 'show-alert' : ''" class="snackbar">Select a candidate</div>

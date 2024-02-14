@@ -1,0 +1,24 @@
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th colspan="3">
+                    Candidates
+                    <button class="round-button" (click)="dialog.showModal()">+</button>
+                </th>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <th>Votes</th>
+            </tr>
+        </thead>
+        <tbody *ngIf="candidates && candidates.length > 0">
+            <tr *ngFor="let candidate of candidates">
+                <td>{{ candidate.name }}</td>
+                <td>{{ candidate.votes }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<dialog appCandidateDialog #dialog></dialog>

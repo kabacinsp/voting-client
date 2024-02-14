@@ -1,0 +1,22 @@
+<section class="container">
+  <header>
+    <h3>Add new voter</h3>
+    <hr />
+  </header>
+
+  <main>
+    <form (ngSubmit)="onSubmit()" #addVoterModal="ngForm">
+      <div class="p-2">
+        <label for="name"> Name</label>
+        <input id="name" [(ngModel)]="voter.name" type="text" required #name="ngModel"
+          [ngModelOptions]="{standalone: true}">
+        <div [hidden]="!name.pristine" class="alert">Name is required</div>
+      </div>
+      <div class="position-bottom p-1">
+        <button class="button" type="button" (click)="close()">Close</button>
+        <button class="button float-right" type="submit">Add</button>
+      </div>
+    </form>
+
+  </main>
+</section>
