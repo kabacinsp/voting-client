@@ -37,9 +37,7 @@ export class VoteComponent {
   }
 
   onSubmit() {
-    console.log(this.voterSelected);
-    if (this.voterSelected || this.candidateSelected) {
-      console.log(this.voterSelected);
+    if (this.isNaN(this.voterSelected) || this.isNaN(this.candidateSelected)) {
       this.showSnackbar();
       return;
     }
